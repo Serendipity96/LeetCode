@@ -22,7 +22,7 @@ var middleNode = function(head) {
         slow = slow.next;
         fast = fast.next.next;
     }
-    return s
+    return slow
 ```
 
 这两个方法消耗时间都是68ms，讨论区有些方法是0ms，我想这个时间消耗应该是JavaScript语言特性的原因。
