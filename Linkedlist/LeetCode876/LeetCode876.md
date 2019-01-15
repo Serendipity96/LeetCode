@@ -1,5 +1,6 @@
 ## 题解
 
+#### 方法一
 把每一个节点存到数组里，利用数组有长度的特性，直接找到中间的节点，时间复杂度O(n)，空间复杂度O(n)。
 ```
 var middleNode = function(head) {
@@ -14,6 +15,7 @@ var middleNode = function(head) {
         return arr[len]
 };
 ```
+#### 方法二
 看到讨论区有一个双指针的思路，被惊艳到了，时间复杂度O(n)，空间复杂度O(1)。回忆起来双指针在刷题的时候经常看到，是一个巧劲，记录下来。
 ```
   let slow = head;
