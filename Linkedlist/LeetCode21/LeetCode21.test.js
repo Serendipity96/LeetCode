@@ -45,25 +45,55 @@ list2.append(4);
 console.log(list2.size())
 
 
-var mergeTwoLists = function(l1, l2) {
-    let l2Cur = l2
-    let pre = l1
-    while(l1 !== null || l2 !== null){
-        if(l1.val <= l2.val){
+var mergeTwoLists = function (l1, l2) {
+    let lr = null;
+    let head = null
+    while (l1 !== null && l2 !== null) {
+        if (l1.val < l2.val) {
+            if(lr === null){
+                lr = l1
+                head = lr
+            }else{
+                lr.next = l1
+            }
+            l1 = l1.next
+            lr =lr.next
+        }
+        if(l2.val < l1.val){
+            if(lr === null){
+                lr = l2
+                head = lr
+            }else{
+                lr.next = l2
+            }
             l2 = l2.next
-            l2Cur = l1.next
-            pre = l1
-            l1.next = l2Cur
-            l1 = l1.next.next
-            pre = l1.next
-            l2Cur = l2
-        }else if (l1.val > l2.val){
+            lr =lr.next
+        }
+
+        if(l1.val === l2.val){
+            if(lr === null){
+                lr = l1
+                head = lr
+                lr.next = l2
+                lr = lr.next
+            }else{
+                lr.next = l1
+                lr = lr.next
+                lr.next = l2
+                lr = lr.next
+            }
+
+            l1 = l1.next
             l2 = l2.next
-            l2Cur.next = l1
-            pre.next = l2Cur
-            l2Cur = l2
         }
     }
+    if(l1 == null){
+        lr.next = l2
+    }
+    if(l2 == null){
+        lr.next = l1
+    }
+    return head
 };
 
-mergeTwoLists(list1,list2)
+mergeTwoLists(list1, list2)
