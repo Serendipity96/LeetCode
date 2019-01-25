@@ -29,51 +29,29 @@ function LinkedList() {
         return length;
     };
 
-
-}
-
-
-var mergeTwoLists = function (l1, l2) {
-    if (l1 === null) {
-        return l2
-    }
-    if (l2 === null) {
-        return l1
-    }
-    if (l1.val > l2.val) {
-        let tmp = l1
-        l1 = l2
-        l2 = tmp
-    }
-    let head = l1
-    let lr = head
-    l1 = l1.next
-
-    while (l1 !== null) {
-        if (l2.val < l1.val) {
-            let tmp = l1
-            l1 = l2
-            l2 = tmp
+    this.hasCycle = function (head) {
+        if(head == null){
+            return false
         }
-        lr.next = l1
-        l1 = l1.next
-        lr = lr.next
+        let slow = head
+        let fast = head
+        while (fast.next !== null && fast.next.next !== null) {
+            slow = slow.next
+            fast = fast.next.next
+            if (slow === fast) {
+                return true
+            }
+        }
+        return false
     }
-
-    lr.next = l2
-    return head
 }
-
-
-var list1 = new LinkedList();
-list1.append(2);
-list1.append(4);
-list1.append(6);
-console.log(list1.size())
 
 var list2 = new LinkedList();
 list2.append(1);
+list2.append(2);
 list2.append(3);
+list2.append(4);
 list2.append(5);
+list2.append(6);
 console.log(list2.size())
-mergeTwoLists(list1.head, list2.head)
+list2.hasCycle(list2.head)
