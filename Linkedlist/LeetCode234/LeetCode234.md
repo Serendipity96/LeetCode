@@ -7,6 +7,9 @@
 2. 中点以后的链表倒置
 3. 同时从头和尾遍历链表，比较值
 
+![](../../static/234.1.png)
+中点之后的链表总是短的，如果短链表指向null了，说明链表已经到了结尾。
+
 ```
 var isPalindrome = function (head) {
     // 找到中间点
@@ -39,4 +42,3 @@ var isPalindrome = function (head) {
 };
 ```
 
-中点之后的链表总是短的，如果短链表指向null了，说明链表已经到了结尾。
