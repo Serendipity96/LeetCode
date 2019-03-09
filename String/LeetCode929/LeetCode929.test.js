@@ -22,29 +22,29 @@ var numUniqueEmails = function (emails) {
         map.set(splitEmail.join(""), "")
     }
 
-    for (let i = 0; i < emails.length; i++) {
-        let result = ""
-        let switchAt = false
-        let switchPlus = false
-        for (let j = 0; j < emails[i].length; j++) {
-            let char = emails[i].charAt(j)
-            if (!switchAt) {
-                if (char === '+') {
-                    switchPlus = true
-                    continue
-                }
-                if (char === '@') {
-                    result += emails[i].slice(j)
-                    break
-                }
-                if (switchPlus || char === '.') {
-                    continue
-                }
-            }
-            result += char
-        }
-        map.set(result, 0)
-    }
+    // for (let i = 0; i < emails.length; i++) {
+    //     let result = ""
+    //     let switchAt = false
+    //     let switchPlus = false
+    //     for (let j = 0; j < emails[i].length; j++) {
+    //         let char = emails[i].charAt(j)
+    //         if (!switchAt) {
+    //             if (char === '+') {
+    //                 switchPlus = true
+    //                 continue
+    //             }
+    //             if (char === '@') {
+    //                 result += emails[i].slice(j)
+    //                 break
+    //             }
+    //             if (switchPlus || char === '.') {
+    //                 continue
+    //             }
+    //         }
+    //         result += char
+    //     }
+    //     map.set(result, 0)
+    // }
     return map.size
 };
 
