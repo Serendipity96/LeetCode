@@ -2,26 +2,24 @@
  * @param {string} moves
  * @return {boolean}
  */
-var judgeCircle = function(moves) {
-    let arr = moves.split("")
-    let score = 0
-    for (let i = 0; i < arr.length; i++) {
-        if(arr[i] === "U"){
-            score+=1
-        }else if(arr[i] === "D"){
-            score-=1
-        }else if(arr[i] === "L"){
-            score-=2
-        }else {
-            score+=2
+var judgeCircle = function (moves) {
+    let x = 0
+    let y = 0
+    for (let i = 0; i < moves.length; i++) {
+        if (moves[i] === "U") {
+            y++
+        } else if (moves[i] === "D") {
+            y--
+        } else if (moves[i] === "L") {
+            x--
+        } else {
+            x++
         }
     }
-    if(score === 0){
-        return true
-    }else {
-        return false
-    }
+    return (x === 0 && y === 0)
 };
 
 var str = "RRDD"
 judgeCircle(str)
+
+
